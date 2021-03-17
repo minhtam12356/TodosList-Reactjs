@@ -18,6 +18,13 @@ class App extends React.Component{
         this.all = this.all.bind(this);
         this.active = this.active.bind(this);
         this.completed = this.completed.bind(this);
+        this.ref = React.createRef();
+        
+        
+    }
+  
+    componentDidMount(){
+      this.ref.current.focus();
     }
 
     checkAll(){
@@ -159,7 +166,7 @@ class App extends React.Component{
         ]
       })
     }
-
+    
     render(){
         let {item, value} = this.state;
         let numberItem = JSON.parse(localStorage.getItem('item')).length;
@@ -170,10 +177,12 @@ class App extends React.Component{
             <div id="img-input">
               <img id="imgAll" src={ImageAll} onClick={this.checkAll}></img>
               <input id="input-text" 
-              placeholder="What needs to be done?" 
-              onKeyUp={this.keyup} 
-              onChange={this.change}
-              value={value}></input>
+                placeholder="What needs to be done?" 
+                onKeyUp={this.keyup} 
+                onChange={this.change}
+                value={value} 
+                ref={this.ref}>
+              </input>
             </div>  
             {
               item.map((item,index) => 

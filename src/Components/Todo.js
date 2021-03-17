@@ -1,6 +1,7 @@
 import React from 'react';
 import './style.css';
 import deleteIcon from '../Image/delete.svg'
+import PropTypes from 'prop-types';
 
 class ToDoList extends React.Component{
     render(){
@@ -14,7 +15,7 @@ class ToDoList extends React.Component{
         return (
             <div className="click">
                 <div id='group-checkbox'>
-                    <input type="checkbox" onChange={click} checked={checked}></input>
+                    <input className="checkbox" type="checkbox" onChange={click} checked={checked}></input>
                     <p className={className}>{item.title}</p>
                 </div>
                 <img id="delete-icon" src={deleteIcon} onClick={deleteItem}></img>
@@ -23,6 +24,12 @@ class ToDoList extends React.Component{
         );
     }
     
+}
+
+ToDoList.propTypes = {
+    input : PropTypes.bool,
+    p : PropTypes.string,
+    img : PropTypes.any
 }
 
 export default ToDoList;

@@ -58,6 +58,23 @@ body{
     opacity: 1;
 }
 
+#input .checkbox{
+    appearance: none;
+    background-color: white;
+    width: 2em;
+    height: 2em;
+    outline: none;
+    border-radius: 50%;
+    border: 1px solid rgb(85, 85, 85);
+    transition: 0.1s;
+}
+
+#input .checkbox:checked{
+    background-image: url('../Image/check.png');
+    background-size: cover;
+    outline: none;
+}
+
 ::placeholder{
     opacity: .2;
     font-style: italic;
